@@ -1,0 +1,26 @@
+{
+  "name": "Fitness-Tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatCeriale/Fitness-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PatCeriale/Fitness-Tracker/issues"
+  },
+  "homepage": "https://github.com/PatCeriale/Fitness-Tracker#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.3.16",
+    "morgan": "^1.9.1"
+  }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Workout Buddy</title>
+    <style>
+        input {
+            display: block;
+            height: 36px;
+            width: 200px;
+            font-size: 24px;
+        }
+
+        textarea {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form id="button-home">
+            <h2>Enter a Workout!</h2>
+            <input type="text" name="title" placeholder="Title (required)">
+            <textarea type="text" name="body" placeholder="Write Workout Here (required)"></textarea><br>
+            <button type="submit">Submit your workout</button>
+        </form>
+    </div>
+    <a href="/notes">See your workouts!</a>
+    <a href="/user">See your profile!</a>
+    <a href="/populateduser">See your profile, populated with notes!</a>
+    <script src="https://unpkg.com/axios@0.21.0/dist/axios.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
