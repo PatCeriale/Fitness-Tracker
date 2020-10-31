@@ -41,7 +41,7 @@ app.get("/api/workout", (req, res) => {
 });
 
 app.post("/api/workout", (req, res) => {
-  db.Workout.create({ name: "Day 1" })
+  db.Workout.create({ name: "Workout" })
     .then((newWorkout) => {
       res.json(newWorkout);
     })

@@ -12,14 +12,14 @@ document
   .addEventListener("submit", function (event) {
     event.preventDefault();
     let title = document.querySelector("input[name=title]").value;
-    let body = document.querySelector("textarea[name=body]").value;
+    let body = document.querySelector("input[name=body]").value;
     if (!title || !body) {
       return;
     }
     // console.log(title);
 
     fetch("/submit", {
-      method: "post",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -40,10 +40,21 @@ function generateWorkouts(name, body) {
   document.querySelector(".current-workout").append(html);
 }
 
+//TODO: Click save button and saves to workouts db
+//TODO: once that is saved to a workout, clear current-workout box
 document
   .querySelector("#save-workout")
   .addEventListener("click", function (event) {
     event.preventDefault();
-    const workout = document.querySelector("#current-workout").textContent;
+    const workout = document.querySelector("#current-workout").value;
     console.log(workout);
+    fetch("/api/workout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ workout }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   });
