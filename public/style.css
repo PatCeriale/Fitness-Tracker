@@ -1,0 +1,19 @@
+input {
+  display: block;
+  height: 36px;
+  width: 200px;
+  font-size: 24px;
+}
+
+textarea {
+  width: 200px;
+  height: 200px;
+}
+body {
+  background-color: rgb(196, 196, 255);
+}
+.current-workout {
+  background-color: ivory;
+  width: 50%;
+  margin: 5px;
+}

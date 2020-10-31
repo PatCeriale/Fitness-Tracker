@@ -13,6 +13,10 @@ const WorkoutSchema = new Schema({
       ref: "Rep",
     },
   ],
+  date: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Workout = mongoose.model("Workout", WorkoutSchema);

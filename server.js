@@ -64,11 +64,6 @@ app.post("/submit", ({ body }, res) => {
 });
 
 app.get("/populatedworkout", (req, res) => {
-  // TODO
-  // =====
-  // Write the query to grab the documents from the Workout collection,
-  // and populate them with any associated Reps.
-  // TIP: Check the models out to see how the Reps refers to the Workout
   db.Workout.find({})
     .populate("reps")
     .then((workouts) => {
