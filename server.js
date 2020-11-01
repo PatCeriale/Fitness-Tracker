@@ -50,10 +50,23 @@ app.post("/api/workout", (req, res) => {
     });
 });
 
+// app.post("/submit", ({ body }, res) => {
+//   db.Rep.create(body)
+//     .then(({ _id }) =>
+//       db.Workout.findOneAndUpdate({}, { $push: { reps: _id } }, { new: true })
+//     )
+//     .then((dbWorkout) => {
+//       res.json(dbWorkout);
+//     })
+//     .catch((err) => {
+//       res.json(err);
+//     });
+// });
+
 app.post("/submit", ({ body }, res) => {
-  db.Rep.create(body)
+  db.Workout.create(body)
     .then(({ _id }) =>
-      db.Workout.findOneAndUpdate({}, { $push: { reps: _id } }, { new: true })
+      db.Workout.findOneAndUpdate({}, { $push: { workout } }, { new: true })
     )
     .then((dbWorkout) => {
       res.json(dbWorkout);

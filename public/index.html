@@ -15,9 +15,14 @@
     <div class="container">
         <form id="button-home">
             <h2>Enter a Workout!</h2>
-            <p>Exercise: <input type="text" name="title" placeholder="Required">
+            <p>Exercise type (cardio, resistance, etc.): <input type="text" name="type" placeholder="Required">
             </p>
-            <p>Reps/Minutes: <input type="text" name="body" placeholder="Required"></p>
+            <p>Title: <input type="text" name="title" placeholder="Required"></p>
+            <p>Duration (minutes): <input type="number" name="duration"></p>
+            <p>Weight (lb): <input type="number" name="weight"></p>
+            <p>Reps: <input type="number" name="reps"></p>
+            <p>Sets: <input type="number" name="sets"></p>
+            <p>Distance (miles): <input type="number" name="distance"></p>
             <button type="submit"><i class="fas fa-plus"></i> Add to current workout</button>
         </form>
     </div>
@@ -28,7 +33,7 @@
     </div>
     <a href="/reps">See your workouts!</a><br>
     <a href="/user">See your profile!</a><br>
-    <a href="/populatedworkout">See your profile, populated with workouts!</a>
+    <a href="/populatedworkout">See all your workouts!</a>
     <script src="https://unpkg.com/axios@0.21.0/dist/axios.min.js"></script>
     <script src="./script.js"></script>
 </body>
