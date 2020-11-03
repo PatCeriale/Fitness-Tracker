@@ -18,6 +18,15 @@ document
     let reps = document.querySelector("input[name=reps]").value;
     let sets = document.querySelector("input[name=sets]").value;
     let distance = document.querySelector("input[name=distance]").value;
+    let exercises = {
+      type: type,
+      title: title,
+      duration: duration,
+      weight: weight,
+      reps: reps,
+      sets: sets,
+      distance: distance,
+    };
     if (!type || !title) {
       return;
     }
@@ -28,19 +37,29 @@ document
       headers: {
         "Content-Type": "application/json",
       },
-      exercises: JSON.stringify({ type, title }),
+      body: JSON.stringify({
+        type,
+        title,
+        duration,
+        weight,
+        reps,
+        sets,
+        distance,
+      }),
     })
       //converts data to json
       .then((res) => res.json())
-      .then(function (data) {
+      .then(function (exercises) {
         //insert into page
-        generateWorkouts({ type, title });
+        generateWorkouts({
+          exercises,
+        });
         // console.log(this.data.reps[0]);
       });
     console.log();
   });
-function generateWorkouts(title, duration) {
-  const html = `${title}: ${duration} 
+function generateWorkouts(data) {
+  const html = `${data} 
   `;
   document.querySelector(".current-workout").append(html);
 }

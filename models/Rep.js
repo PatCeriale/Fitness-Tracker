@@ -1,23 +1,34 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const WorkoutSchema = new Schema({
+const RepsSchema = new Schema({
+  type: {
+    type: String,
+    trim: true,
+    required: "Enter an exercise type",
+  },
   title: {
     type: String,
-    validate: [
-      ({ length }) => length >= 1,
-      "Insert text into title text area.",
-    ],
+    trim: true,
+    required: "Enter an exercise name",
   },
-  body: {
-    type: String,
-    validate: [
-      ({ length }) => length >= 1,
-      "Insert text into workout text area.",
-    ],
+  duration: {
+    type: Number,
+  },
+  weight: {
+    type: Number,
+  },
+  reps: {
+    type: Number,
+  },
+  sets: {
+    type: Number,
+  },
+  distance: {
+    type: Number,
   },
 });
 
-const Rep = mongoose.model("Rep", WorkoutSchema);
+const Rep = mongoose.model("Rep", RepsSchema);
 
 module.exports = Rep;

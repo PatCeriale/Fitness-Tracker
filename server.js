@@ -1,7 +1,9 @@
 const express = require("express");
+const { Router } = require("express");
+const router = Router();
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 const db = require("./models");
 const app = express();
 
@@ -86,6 +88,20 @@ app.get("/populatedworkout", (req, res) => {
       res.json(err);
     });
 });
+
+// app.router.put("/api/workouts/:id", (req, res) => {
+//   Workout.findByIdAndUpdate(
+//     req.params.id,
+//     { $push: { exercises: req.body } },
+//     { new: true }
+//   )
+//     .then((db) => {
+//       res.json(db);
+//     })
+//     .catch((err) => {
+//       res.json(err);
+//     });
+// });
 
 // Start the server
 app.listen(PORT, () => {
