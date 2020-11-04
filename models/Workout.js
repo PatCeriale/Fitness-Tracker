@@ -11,12 +11,15 @@ const workoutSchema = new Schema(
       type: Date,
       default: Date().now,
     },
-    exercises: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Rep",
-      },
-    ],
+    exercises: {
+      type: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "Exercise",
+        },
+      ],
+      default: Array,
+    },
   },
   {
     toJSON: {

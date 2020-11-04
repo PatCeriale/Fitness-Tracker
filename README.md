@@ -6,6 +6,8 @@
 
 > This is a fitness tracking app that allows the user to save their workouts as well as update previous workouts in an effort to log their progress.
 
+View the deployed app here: https://blooming-hamlet-34622.herokuapp.com/.
+
 ## **Table of Contents**
 
 1. [Installation](#installation)

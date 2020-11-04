@@ -3,7 +3,7 @@ const { Router } = require("express");
 const router = Router();
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 const db = require("./models");
 const app = express();
 
@@ -66,11 +66,16 @@ app.post("/api/workout", (req, res) => {
 // });
 
 app.post("/submit", ({ body }, res) => {
-  db.Workout.create(body)
+  db.Exercise.create(body)
     .then(({ _id }) =>
-      db.Workout.findOneAndUpdate({}, { $push: { workout } }, { new: true })
+      db.Workout.findOneAndUpdate(
+        {},
+        { $push: { exercises: _id } },
+        { new: true }
+      )
     )
     .then((dbWorkout) => {
+      console.log(dbWorkout);
       res.json(dbWorkout);
     })
     .catch((err) => {

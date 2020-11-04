@@ -9,7 +9,7 @@ fetch("/populatedworkout").then((r) => r.json());
 
 document
   .getElementById("button-home")
-  .addEventListener("submit", function (event) {
+  .addEventListener("submit", async function (event) {
     event.preventDefault();
     let type = document.querySelector("input[name=type]").value;
     let title = document.querySelector("input[name=title]").value;
@@ -32,7 +32,7 @@ document
     }
     // console.log(type);
 
-    fetch("/submit", {
+    const res = await fetch("/submit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,16 +46,15 @@ document
         sets,
         distance,
       }),
-    })
-      //converts data to json
-      .then((res) => res.json())
-      .then(function (exercises) {
-        //insert into page
-        generateWorkouts({
-          exercises,
-        });
-        // console.log(this.data.reps[0]);
-      });
+    });
+    const data = await res.json();
+    //converts data to json
+    console.log(data);
+    //insert into page
+    generateWorkouts({
+      exercises,
+    });
+    // console.log(this.data.reps[0]);
     console.log();
   });
 function generateWorkouts(data) {
